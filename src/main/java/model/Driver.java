@@ -5,13 +5,16 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
+// specifies that the class is an entity and is mapped to a database table.
 @Table(name="drivers")
+//the name of the database table to be used for mapping
 @Data
-
+// for getters, setters, tostring and more...
 public class Driver {
 
 
     @Id
+//     specifies the primary key of an entity
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    ID is the primary key - this is the strategy
 
@@ -19,6 +22,7 @@ public class Driver {
 
     private long driverId;
     @Column(name = "driverName")
+// column - used for Adding the column the name in the table of a particular MySQL database.
     private String driverName;
     @Column(name = "driverAge")
     private int driverAge;
@@ -29,11 +33,11 @@ public class Driver {
     @Column(name = "driverWorkingHours")
     private String driverWorkingHours;
 
-    // default constructor
+    // default constructor (empty)
     public Driver(){}
 
 
-
+ // Constructor parameters
     public Driver(String driverName, int driverAge, String driverStatus, String driverCurrentLocation, String driverWorkingHours){
         this.driverName = driverName;
         this.driverAge = driverAge;
