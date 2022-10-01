@@ -10,15 +10,27 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+// used to mark the class as a service provider
+// in the service file, we are able to add business functionalities.
 @Configurable
+// allows instances of the decorated class to hold references to Spring beans.
 public class DriverService {
 
 
 
     @Autowired
+//     it enables us to inject the object dependency implicitly - meaning less code😎
+//     It allows Spring to resolve and inject collaborating beans into our bean.
+//     beans - the objects that form the backbone of your application and that are managed by the Spring IoC container.
   // the line under is the constructor parameter
     public DriverService(DriverRepository driverRepository) {this.driverRepository = driverRepository;}
     //defining the repository
+//  The repository is where the data is stored.
+//  The service is what manipulates the data.   
+//  in simpler words - the money vault is the repository. 
+//  The teller that deposits, withdraws, etc is the service.
+    
+    
     private final DriverRepository driverRepository;
 
 
