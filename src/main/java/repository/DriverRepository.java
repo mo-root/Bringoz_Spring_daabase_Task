@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// A repository is a mechanism for encapsulating storage, retrieval, and search behavior which emulates a collection of objects
+
+
 @Repository
+// used to indicate that the class provides the mechanism for storage, retrieval, update, delete and search operation on objects.
 @Service
 
 public interface DriverRepository extends JpaRepository<Driver, Long> {
@@ -18,6 +22,7 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
     //    @PersistenceContext
 //    private EntityManager entityManger;
     @Query(value = "SELECT * FROM drivers WHERE driverName = ?1",nativeQuery = true)
+//  @Query declares finder queries directly on repository methods.
     List<Driver> getDriverByName(String driverName);
 
     @Query(value = "SELECT * FROM drivers WHERE driverAge = ?1",nativeQuery = true)
